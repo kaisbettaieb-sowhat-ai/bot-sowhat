@@ -1,17 +1,23 @@
 <!doctype html>
 <html lang="">
-
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Front Chat</title>
 </head>
-
 <body>
     <div id="app"></div>
-    <script type="module" id="chat" data-sowhat="2M3aGz6mJbf85JK6Kl1d"
-        src="https://bot-preprod.sowhat.ai/js/f.js?v=5"></script>
-</body>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const prefill = params.get('prefill');
 
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.id = 'chat';
+        script.dataset.sowhat = prefill || '2M3aGz6mJbf85JK6Kl1d';
+        script.src = 'https://bot-preprod.sowhat.ai/js/f.js?v=5';
+        document.body.appendChild(script);
+    </script>
+</body>
 </html>
